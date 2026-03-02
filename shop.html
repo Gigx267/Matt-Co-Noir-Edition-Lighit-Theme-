@@ -316,6 +316,46 @@
         .bento-card:nth-child(7) { animation-delay: 0.7s; }
         .bento-card:nth-child(8) { animation-delay: 0.8s; }
     </style>
+    <style> /* Modified Bento Grid for 2x2 Mobile View */
+@media (max-width: 768px) {
+    .bento-grid {
+        /* This sets the grid to 2 columns on tablets and mobile */
+        grid-template-columns: repeat(2, 1fr); 
+        /* Adjust height to fit the 2x2 flow; auto lets cards define height */
+        grid-template-rows: auto; 
+        gap: 0.75rem;
+    }
+
+    /* Force all cards to occupy exactly 1 column/row on mobile 
+       to ensure the 2x2 pattern stays consistent */
+    .watches-card, .rings-card, .necklace-card, 
+    .bracelets-card, .earrings-card, .new-arrivals-card, 
+    .luxury-card, .gifts-card {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        height: 250px; /* Give them a consistent height */
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr; /* This is the specific 2x2 trigger */
+        gap: 0.5rem;
+    }
+    
+    .bento-card {
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .bento-card h3 {
+        font-size: 1.4rem; /* Smaller text so it fits the 2x2 boxes */
+    }
+    
+    .bento-card-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}</style>
 </head>
 <body>
     <div class="progress-bar"><div class="progress-bar-line" id="progressBar"></div></div>
