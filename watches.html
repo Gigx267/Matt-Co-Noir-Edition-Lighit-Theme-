@@ -1,174 +1,401 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Icebyflexy — Watches Collection</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="description" content="Premium luxury timepieces. Explore our horological collection of automatic and quartz watches."/>
+    <title>Icebyflexy — Watches Collection (Mobile optimised)</title>
+    <!-- viewport: proper mobile scaling, touch friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"/>
+    <meta name="description" content="Luxury timepieces – automatic & quartz. Fully responsive, mobile-first shopping."/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
     <style>
-        /* Base (Refined Light Mode - Ivory & Gold) */
-        *{box-sizing:border-box;margin:0;padding:0}
-        html,body{height:100%}
-        body{
-            font-family:'Montserrat',sans-serif;
-            background:#fcfaf7; /* Soft Ivory Background */
-            color:#2d2a26; /* Deep Charcoal for readability */
-            -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-            line-height:1.45;
-            overflow-x:hidden;
+        /* RESET & BASE – light, luxurious, mobile-first */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; width: 100%; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fcfaf7;   /* soft ivory */
+            color: #2d2a26;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            overflow-x: hidden;
         }
-        a{color:inherit;text-decoration:none}
-        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; height: auto; }
 
-        /* Top Nav */
-        .progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:rgba(184,134,11,0.1);z-index:1100}
-        .progress-bar-line{height:100%;width:0;background:linear-gradient(90deg,#b8860b,#d4af37);box-shadow:0 0 8px rgba(212,175,55,0.3);transition:width .12s linear}
-        
-        .transparent-navbar{position:fixed;top:0;left:0;right:0;padding:1.2rem 0;z-index:1050;background:transparent;transition:all .25s}
-        .transparent-navbar.scrolled{
-            background:rgba(252,250,247,.98);
-            backdrop-filter:blur(10px);
-            border-bottom:1px solid rgba(0,0,0,.05);
-            padding:0.8rem 0;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        
-        .site-logo{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:2px;font-size:1.25rem;color:#1a1a1a;display:flex;align-items:center}
-        .site-logo img{height:1cm;border-radius:50%;opacity:1;width:auto;filter: brightness(0.9);}
-        
-        .nav-link{font-weight:600;font-size:.95rem;text-transform:uppercase;color:rgba(45,42,38,.8);transition:color .2s}
-        .nav-link:hover,.nav-link.active{color:#b8860b}
 
-        /* Hero */
-        .hero{
-            min-height:82vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            padding:5.5rem 1rem 2rem;
-            /* Lighter overlay for the background image */
-            background:linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.4)), url('./watch-hero.jpg') center/cover no-repeat;
+        /* progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(184,134,11,0.12);
+            z-index: 1100;
         }
-        .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4rem);letter-spacing:1px;color:#1a1a1a;font-weight:700}
+        .progress-bar-line {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #b8860b, #d4af37);
+            transition: width 0.1s linear;
+        }
 
-        /* Controls */
-        .controls{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin:2rem 0}
-        .search{flex:1;min-width:180px;display:flex;gap:.5rem;align-items:center;background:#fff;padding:.5rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);box-shadow: 0 2px 4px rgba(0,0,0,0.02)}
-        .search input{background:transparent;border:0;outline:none;color:inherit;padding:.5rem;width:100%}
-        .select{background:#fff;padding:.45rem;border-radius:8px;border:1px solid rgba(0,0,0,.08);color:inherit;cursor:pointer}
-        .badge{background:#b8860b;color:#fff;padding:.35rem .6rem;border-radius:999px;font-weight:700}
+        /* Navbar – taller, comfortable tap area */
+        .transparent-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0.9rem 0;
+            z-index: 1050;
+            background: rgba(252,250,247,0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.2s;
+        }
+        .navbar-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .site-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+        }
+        .site-logo img {
+            height: 1cm;           
+            max-height: 42px;
+            width: auto;
+            border-radius: 50%;
+        }
+        .nav-links {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #2d2a26;
+            padding: 0.4rem 0;       /* bigger hit area */
+            white-space: nowrap;
+        }
+        .nav-link.active, .nav-link:hover { color: #b8860b; }
 
-        /* Products Grid */
-        .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:2.5rem}
-        .card{
-            background:#fff;
-            border:1px solid rgba(0,0,0,.05);
-            border-radius:12px;
-            overflow:hidden;
-            transition:all .3s ease;
-            cursor:pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        /* Hero – shorter on mobile, keep text readable */
+        .hero {
+            min-height: 34vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5.2rem 1rem 2rem;
+            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.4)), 
+                        url('./watch-hero.jpg') center/cover no-repeat;
+            margin-bottom: 0.5rem;
         }
-        .card:hover{transform:translateY(-8px);box-shadow: 0 12px 24px rgba(0,0,0,0.08)}
-        .card-img{width:100%;height:280px;object-fit:cover;background:#f9f9f9}
-        .card-body{padding:1.25rem;display:flex;flex-direction:column;gap:.5rem}
-        
-        .product-title{font-weight:700;color:#1a1a1a;font-size:1.1rem}
-        .watch-specs div{
-            background:rgba(184,134,11,0.08);
-            color:#8b6d1b;
-            padding:0.2rem 0.6rem;
-            border-radius:4px;
-            font-size:0.7rem;
-            font-weight:600;
-            border:1px solid rgba(184,134,11,0.1);
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 8vw, 3.8rem);
+            color: #1a1a1a;
+            font-weight: 700;
         }
-        .price{font-weight:700;color:#b8860b;font-size:1.2rem}
-        
-        .btn{background:transparent;border:1.5px solid #b8860b;color:#b8860b;padding:.6rem .8rem;border-radius:8px;cursor:pointer;font-weight:700;transition:all .2s}
-        .btn:hover{background:rgba(184,134,11,0.05)}
-        .btn.primary{background:#b8860b;color:#fff;border-color:transparent}
-        .btn.primary:hover{background:#a6790a;box-shadow: 0 4px 12px rgba(184,134,11,0.2)}
 
-        /* Cart Sidebar */
-        .cart-toggle{position:fixed;right:2rem;bottom:2rem;background:#1a1a1a;color:#fff;padding:1rem;border-radius:999px;z-index:1200;cursor:pointer;border:none;display:flex;gap:.6rem;align-items:center;font-weight:700;box-shadow: 0 8px 24px rgba(0,0,0,0.15)}
-        .cart-sidebar{
-            position:fixed;top:0;right:-420px;width:400px;height:100vh;
-            background:#fff;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
-            padding:2rem 1.5rem;
-            transition:right .4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index:1190;
+        /* Controls – stacked on mobile, easy taps */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin: 1.5rem 0 1.8rem;
         }
-        .cart-sidebar.open{right:0}
-        .cart-item{border-bottom:1px solid #eee;padding:1rem 0}
-/* Modified Grid for 2x2 Mobile View */
-        @media (max-width: 1024px) {
+        .search {
+            flex: 2 1 200px;
+            min-width: 160px;
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 48px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .search:focus-within {
+            border-color: #b8860b;
+            box-shadow: 0 0 0 3px rgba(184,134,11,0.12);
+        }
+        .search input {
+            background: transparent;
+            border: 0;
+            outline: none;
+            color: #2d2a26;
+            padding: 0.7rem 0.4rem;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+        .search input::placeholder { color: #aaa; }
+
+        .select {
+            background: #ffffff;
+            padding: 0.7rem 1rem;
+            border-radius: 48px;
+            border: 1px solid rgba(0,0,0,0.06);
+            color: #2d2a26;
+            font-size: 0.9rem;
+            cursor: pointer;
+            flex: 1 1 auto;
+            min-width: 140px;
+        }
+        .badge {
+            background: #b8860b;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* GRID – mobile: 2 columns, tablet 3, desktop 4 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* 2 columns even on smallest */
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 600px) {
+            .grid { gap: 1.2rem; }
+        }
+        @media (min-width: 768px) {
             .grid { grid-template-columns: repeat(3, 1fr); }
         }
-
-        @media (max-width: 768px) {
-            .grid { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 1rem; 
-            }
-            .cart-sidebar { width: 100%; right: -100%; }
-            .hero h1 { font-size: 2.2rem; }
+        @media (min-width: 1024px) {
+            .grid { grid-template-columns: repeat(4, 1fr); }
         }
 
-        @media (max-width: 480px) {
-            .grid { 
-                grid-template-columns: 1fr 1fr; /* This creates the 2x2 view */
-                gap: 0.75rem; /* Slightly smaller gap for small screens */
-            }
-
-            .card-img {
-                height: 180px; /* Reduced height so it doesn't take up too much vertical space */
-            }
-
-            .card-body {
-                padding: 0.8rem;
-            }
-
-            .product-title {
-                font-size: 0.85rem; /* Smaller text for the titles */
-                height: 2.5rem; /* Ensures titles align even if one is longer */
-                overflow: hidden;
-            }
-
-            .watch-specs {
-                display: none; /* Hides specs on mobile grid to keep it clean */
-            }
-
-            .price {
-                font-size: 0.95rem;
-            }
-
-            .btn.primary {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.75rem;
-            }
+        /* CARD – clean, touch-optimized */
+        .card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.15s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
         }
-        /* Modal */
-        .modal-backdrop{position:fixed;inset:0;background:rgba(255,255,255,.9);display:none;align-items:center;justify-content:center;z-index:1250;backdrop-filter:blur(8px)}
-        .modal{
-            background:#fff;
-            border-radius:16px;
-            padding:2.5rem;
-            width:min(900px,95%);
-            border:1px solid rgba(0,0,0,.05);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+        }
+        .card-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;           /* square images */
+            object-fit: cover;
+            background: #f5f2ed;
+        }
+        .card-body {
+            padding: 0.9rem 0.8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            flex: 1;
+        }
+        .product-title {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.4rem;          /* keeps consistent rows */
+        }
+        /* watch specs – hidden on mobile grid for simplicity, visible in modal */
+        .watch-specs {
+            display: none;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.4rem;
+        }
+        .price {
+            font-weight: 700;
+            color: #b8860b;
+            font-size: 1rem;    
+        }
+        .btn {
+            background: transparent;
+            border: 1.5px solid #b8860b;
+            color: #b8860b;
+            padding: 0.45rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.15s;
+            touch-action: manipulation;
+            white-space: nowrap;
+            min-width: 60px;
+            text-align: center;
+        }
+        .btn.primary {
+            background: #b8860b;
+            color: white;
+            border-color: transparent;
+        }
+        .btn.primary:hover {
+            background: #a6790a;
         }
 
-        @media (max-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-        @media (max-width:768px){.grid{grid-template-columns:repeat(2,1fr)}.cart-sidebar{width:100%;right:-100%}}
-        @media (max-width:480px){.grid{grid-template-columns:1fr}}
+        /* Cart toggle – always accessible, big tap */
+        .cart-toggle {
+            position: fixed;
+            right: 1.2rem;
+            bottom: 1.8rem;
+            background: #1a1a1a;
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 60px;
+            z-index: 1200;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+            font-size: 1rem;
+        }
+
+        /* Cart sidebar – full width on mobile, max-width on larger */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.06);
+            padding: 1.5rem 1.2rem;
+            transition: right 0.3s ease;
+            z-index: 1190;
+            display: flex;
+            flex-direction: column;
+        }
+        .cart-sidebar.open { right: 0; }
+        .cart-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 0.3rem;
+        }
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #f2ede8;
+        }
+        .cart-item-info {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        /* Modal – mobile-first, stacks, big buttons */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1250;
+        }
+        .modal-backdrop.show { display: flex; }
+        .modal {
+            background: #fff;
+            border-radius: 28px;
+            padding: 1.5rem;
+            width: 92%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .modal-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .modal-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            border-radius: 20px;
+            background: #f5f0ea;
+        }
+        .watch-specs-modal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .watch-specs-modal div {
+            background: rgba(184,134,11,0.08);
+            color: #8b6d1b;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* empty state */
+        .empty { padding: 2rem; text-align: center; color: #8f8b86; }
+
+        /* small overrides for touch */
+        button { touch-action: manipulation; }
     </style>
-   
 </head>
 <body>
     <div class="progress-bar"><div class="progress-bar-line" id="progressBar"></div></div>
@@ -176,62 +403,39 @@
     <header class="transparent-navbar" id="navbar">
         <div class="container">
             <div class="navbar-wrapper">
-                <a class="site-logo" href="index.html"><img src="logo.png" alt="Icebyflexy"></a>
+                <a class="site-logo" href="index.html"><img src="logo.png" alt="Icebyflexy Logo" loading="lazy"></a>
                 <nav class="nav-links">
-                    <a class="nav-link" href="index.html">Home</a> &nbsp;&nbsp;
-                    <a class="nav-link" href="About.html">About</a>&nbsp;&nbsp;
-                 
-                    <a class="nav-link" href="shop.html">Colllection </a>&nbsp;&nbsp;
-                    <a class="nav-link" href="contact.html">Contact</a>&nbsp;&nbsp;
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="About.html">About</a>
+                    <a class="nav-link" href="shop.html">Collection</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
                 </nav>
             </div>
         </div>
     </header>
-<style> 
 
-    /* Increased height and padding for the overall bar */
-.transparent-navbar {
-    padding: 1.5rem 0; /* Increased from 1rem to 1.5rem */
-}
+    <main>
+        <!-- hero section with reduced height -->
+        <section class="hero" aria-label="watches hero">
+            <h1>Timeless Craft</h1>
+        </section>
 
-/* Specific control over the wrapper alignment */
-.navbar-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0; /* Extra vertical padding inside the wrapper */
-}
-
-/* Vertical breathing room for the links themselves */
-.nav-link {
-    padding: 0.5rem 0; /* Adds vertical space around the text */
-    display: inline-block;
-}
-
-/* Ensure the logo isn't cramped */
-.site-logo img {
-    margin: 0.5rem 0;
-}
-</style>
-    <main style="padding-top:5.6rem">
-      
-
-        <section class="container">
+        <section class="container" aria-label="watch shop">
             <div class="controls">
-                <div class="search">
-                    <span class="material-icons">search</span>
-                    <input id="searchInput" placeholder="Search brands, movements, or styles..."/>
+                <div class="search" role="search">
+                    <span class="material-icons" style="opacity:0.7;">search</span>
+                    <input id="searchInput" placeholder="Search by brand, style..." aria-label="Search watches"/>
                 </div>
 
-                <select id="movementSelect" class="select">
+                <select id="movementSelect" class="select" aria-label="Filter by movement">
                     <option value="all">All Movements</option>
                     <option value="automatic">Automatic</option>
                     <option value="manual">Manual Wind</option>
                     <option value="quartz">Quartz</option>
                 </select>
 
-                <select id="sortSelect" class="select">
-                    <option value="newest">Latest Arrivals</option>
+                <select id="sortSelect" class="select" aria-label="Sort">
+                    <option value="newest">Latest</option>
                     <option value="price-asc">Price: Low to High</option>
                     <option value="price-desc">Price: High to Low</option>
                 </select>
@@ -239,204 +443,258 @@
                 <div class="badge" id="resultsCount">0</div>
             </div>
 
-            <div id="productsGrid" class="grid"></div>
-            <div id="emptyState" style="display:none; text-align:center; padding:3rem; opacity:0.6;">No timepieces found matching your criteria.</div>
+            <div id="productsGrid" class="grid" aria-live="polite"></div>
+            <div id="emptyState" class="empty" style="display:none">No timepieces found — try another search.</div>
         </section>
     </main>
 
-    <button id="cartToggle" class="cart-toggle">
+    <!-- cart toggle -->
+    <button id="cartToggle" class="cart-toggle" aria-label="Open cart">
         <span class="material-icons-outlined">shopping_bag</span>
         <span id="cartCount">0</span>
     </button>
 
-    <aside id="cartSidebar" class="cart-sidebar">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>Your Collection</h3>
-            <button id="closeCart" class="btn" style="border:none">Close</button>
+    <!-- cart sidebar -->
+    <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
+        <div class="cart-head">
+            <h3 style="font-size:1.3rem;">Your Collection</h3>
+            <button id="closeCart" class="btn" style="border:none; min-width:auto;">✕</button>
         </div>
         <div class="cart-items" id="cartItems"></div>
-        <div style="padding-top:1rem; border-top:1px solid rgba(255,255,255,0.1)">
+        <div style="padding-top:1rem; border-top:1px solid rgba(0,0,0,0.05);">
             <div style="display:flex;justify-content:space-between;margin-bottom:1rem">
                 <span>Total</span>
-                <span id="cartSubtotal" class="price">$0.00</span>
+                <span id="cartSubtotal" class="price">₦0</span>
             </div>
-            <button id="checkoutBtn" class="btn primary" style="width:100%">Secure Checkout</button>
+            <button id="checkoutBtn" class="btn primary" style="width:100%; padding:0.9rem;">Secure Checkout</button>
         </div>
     </aside>
 
+    <!-- modal -->
     <div id="modalBackdrop" class="modal-backdrop">
         <div class="modal">
-            <div style="display:flex;justify-content:space-between;margin-bottom:1rem">
-                <h2 id="modalTitle">Watch Details</h2>
-                <button id="closeModal" class="btn" style="border:none">Close</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                <h2 id="modalTitle" style="font-size:1.4rem;">Watch</h2>
+                <button id="closeModal" class="btn" style="border:none;">✕</button>
             </div>
             <div class="modal-grid">
-                <img id="modalImage" class="modal-img" src="" alt="watch">
+                <img id="modalImage" class="modal-img" src="" alt="">
                 <div>
-                    <div id="modalPrice" class="price" style="font-size:1.5rem;margin-bottom:1rem"></div>
-                    <p id="modalDescription" style="margin-bottom:1.5rem; color:rgba(255,255,255,0.7)"></p>
-                    <div id="modalSpecs" class="watch-specs" style="margin-bottom:2rem"></div>
-                    <button id="modalAddBtn" class="btn primary" style="width:100%">Add to Collection</button>
+                    <div id="modalPrice" class="price" style="font-size:1.7rem; margin-bottom:0.8rem;"></div>
+                    <p id="modalDescription" style="margin-bottom:1rem; color:#555;"></p>
+                    <div id="modalSpecs" class="watch-specs-modal"></div>
+                    <button id="modalAddBtn" class="btn primary" style="width:100%; margin-top:1.8rem; padding:0.9rem;">Add to Collection</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const watches = [
-            {
-                    id: 'w001',
-                    title: 'Matt&Co Noir 40mm Black Leather Strap',
-                    price: 500000,
-                    movement: 'automatic',
-                    img: 'wp (4).jpeg',
-                    desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium black leather strap with 40mm case.',
-                    specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Black Leather Strap']
-                },
-            {
-            id: 'w002',
-                    title: 'Matt&Co Noir 40mm Blue Leather Strap',
-                    price: 500000,
-                    movement: 'automatic',
-                    img: 'wp (3).jpeg',
-                    desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium blue leather strap with 40mm case.',
-                    specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Blue Leather Strap']
-            },
-            {
-            id: 'w003',
-     title: 'Matt&Co Noir 40mm Orange Leather Strap',
-                    price: 500000,
-                    movement: 'automatic',
-                    img: 'wp (2).jpeg',
-                    desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium orange leather strap with 40mm case.',
-                    specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Orange Leather Strap']
-            },
-            
-            {
-            id: 'w004',
-            title: 'Matt&Co Noir 40mm White Leather Strap',
-                    price: 500000,
-                    movement: 'automatic',
-                    img: 'wp (1).jpeg',
-                    desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium white leather strap with 40mm case.',
-                    specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'White Leather Strap']
-            },
-            
-        ];
+        (function() {
+            // ----- WATCH DATA (unchanged) -----
+            const watches = [
+                { id: 'w001', title: 'Matt&Co Noir 40mm Black Leather Strap', price: 500000, movement: 'automatic', img: 'wp (4).jpeg', desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium black leather strap with 40mm case.', specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Black Leather Strap'] },
+                { id: 'w002', title: 'Matt&Co Noir 40mm Blue Leather Strap', price: 500000, movement: 'automatic', img: 'wp (3).jpeg', desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium blue leather strap with 40mm case.', specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Blue Leather Strap'] },
+                { id: 'w003', title: 'Matt&Co Noir 40mm Orange Leather Strap', price: 500000, movement: 'automatic', img: 'wp (2).jpeg', desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium orange leather strap with 40mm case.', specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'Orange Leather Strap'] },
+                { id: 'w004', title: 'Matt&Co Noir 40mm White Leather Strap', price: 500000, movement: 'automatic', img: 'wp (1).jpeg', desc: 'Sophisticated noir timepiece featuring a precision automatic movement and premium white leather strap with 40mm case.', specs: ['40mm Case', '72hr Power Reserve', 'Sapphire Crystal', 'White Leather Strap'] },
+            ];
 
-        let cart = JSON.parse(localStorage.getItem('iceby_cart_watches') || '{}');
+            // ----- CART (stored separately) -----
+            let cart = JSON.parse(localStorage.getItem('iceby_cart_watches') || '{}');
 
-        // Logic Functions
-        function formatPrice(n){ return '₦' + n.toLocaleString(); }
-
-        function renderWatches() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const movement = document.getElementById('movementSelect').value;
-            const sort = document.getElementById('sortSelect').value;
-
-            let filtered = watches.filter(w => {
-            const matchesSearch = w.title.toLowerCase().includes(query) || w.desc.toLowerCase().includes(query);
-            const matchesMove = movement === 'all' || w.movement === movement;
-            return matchesSearch && matchesMove;
-            });
-
-            if(sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
-            if(sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
-
+            // DOM elements
             const grid = document.getElementById('productsGrid');
-            grid.innerHTML = '';
-            
-            filtered.forEach(w => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <img class="card-img" src="${w.img}" alt="${w.title}">
-                <div class="card-body">
-                <div class="product-title">${w.title}</div>
-                <div class="watch-specs">
-                    ${w.specs.slice(0,2).map(s => `<div>${s}</div>`).join('')}
-                </div>
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
-                    <span class="price">${formatPrice(w.price)}</span>
-                    <button class="btn primary" onclick="addToCart('${w.id}')">Add</button>
-                </div>
-                </div>
-            `;
-            card.onclick = (e) => { if(e.target.tagName !== 'BUTTON') openModal(w.id); };
-            grid.appendChild(card);
+            const resultsCount = document.getElementById('resultsCount');
+            const emptyState = document.getElementById('emptyState');
+            const searchInput = document.getElementById('searchInput');
+            const movementSelect = document.getElementById('movementSelect');
+            const sortSelect = document.getElementById('sortSelect');
+            const cartToggle = document.getElementById('cartToggle');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartItemsEl = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const closeCart = document.getElementById('closeCart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const modalBackdrop = document.getElementById('modalBackdrop');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalImage = document.getElementById('modalImage');
+            const modalPrice = document.getElementById('modalPrice');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalSpecs = document.getElementById('modalSpecs');
+            const modalAddBtn = document.getElementById('modalAddBtn');
+            const closeModal = document.getElementById('closeModal');
+
+            // helpers
+            function formatPrice(n) { return '₦' + n.toLocaleString(); }
+            function getWatch(id) { return watches.find(w => w.id === id); }
+
+            // render grid
+            function renderWatches() {
+                const q = searchInput.value.toLowerCase().trim();
+                const mov = movementSelect.value;
+                const sort = sortSelect.value;
+
+                let filtered = watches.filter(w => {
+                    const matchesSearch = w.title.toLowerCase().includes(q) || w.desc.toLowerCase().includes(q);
+                    const matchesMov = mov === 'all' || w.movement === mov;
+                    return matchesSearch && matchesMov;
+                });
+
+                if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
+                if (sort === 'price-desc') filtered.sort((a,b) => b.price - a.price);
+
+                grid.innerHTML = '';
+                if (filtered.length === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                    filtered.forEach(w => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.setAttribute('data-id', w.id);
+                        card.innerHTML = `
+                            <img class="card-img" src="${w.img}" alt="${w.title}" loading="lazy">
+                            <div class="card-body">
+                                <div class="product-title">${w.title}</div>
+                                <div class="price-row">
+                                    <span class="price">${formatPrice(w.price)}</span>
+                                    <button class="btn primary add-btn" data-id="${w.id}">Add</button>
+                                </div>
+                            </div>
+                        `;
+                        // card click -> modal (unless add clicked)
+                        card.addEventListener('click', (e) => {
+                            if (!e.target.classList.contains('add-btn')) openModal(w.id);
+                        });
+                        grid.appendChild(card);
+                    });
+                }
+                resultsCount.textContent = filtered.length;
+            }
+
+            // modal
+            function openModal(id) {
+                const w = getWatch(id);
+                if (!w) return;
+                modalTitle.textContent = w.title;
+                modalImage.src = w.img;
+                modalPrice.textContent = formatPrice(w.price);
+                modalDescription.textContent = w.desc;
+                modalSpecs.innerHTML = w.specs.map(s => `<div>${s}</div>`).join('');
+                modalAddBtn.onclick = () => { addToCart(w.id); closeModalFunc(); };
+                modalBackdrop.classList.add('show');
+            }
+            function closeModalFunc() { modalBackdrop.classList.remove('show'); }
+
+            // cart functions
+            function saveCart() { localStorage.setItem('iceby_cart_watches', JSON.stringify(cart)); }
+            function addToCart(id) {
+                cart[id] = (cart[id] || 0) + 1;
+                saveCart();
+                updateCartUI();
+            }
+            function removeFromCart(id) {
+                delete cart[id];
+                saveCart();
+                updateCartUI();
+            }
+            function updateCartUI() {
+                cartItemsEl.innerHTML = '';
+                let total = 0;
+                let count = 0;
+                const ids = Object.keys(cart);
+                if (ids.length === 0) {
+                    cartItemsEl.innerHTML = '<div class="empty" style="padding:1rem 0;">Your collection is empty.</div>';
+                } else {
+                    ids.forEach(id => {
+                        const w = getWatch(id);
+                        if (!w) return;
+                        const qty = cart[id];
+                        total += w.price * qty;
+                        count += qty;
+                        const div = document.createElement('div');
+                        div.className = 'cart-item';
+                        div.innerHTML = `
+                            <img src="${w.img}" alt="${w.title}">
+                            <div class="cart-item-info">
+                                <div style="font-weight:600;">${w.title.substring(0,22)}…</div>
+                                <div class="price">${formatPrice(w.price)} × ${qty}</div>
+                            </div>
+                            <button class="btn" style="border:none; font-size:1.2rem;" data-id="${id}" data-remove>✕</button>
+                        `;
+                        div.querySelector('[data-remove]').addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            removeFromCart(id);
+                        });
+                        cartItemsEl.appendChild(div);
+                    });
+                }
+                cartCount.textContent = count;
+                cartSubtotal.textContent = formatPrice(total);
+            }
+
+            // event listeners for grid (add buttons)
+            grid.addEventListener('click', (e) => {
+                const addBtn = e.target.closest('.add-btn');
+                if (addBtn) {
+                    e.stopPropagation();
+                    const id = addBtn.dataset.id;
+                    if (id) addToCart(id);
+                }
             });
-            document.getElementById('resultsCount').textContent = filtered.length;
-        }
 
-        function openModal(id) {
-            const w = watches.find(x => x.id === id);
-            document.getElementById('modalTitle').textContent = w.title;
-            document.getElementById('modalImage').src = w.img;
-            document.getElementById('modalPrice').textContent = formatPrice(w.price);
-            document.getElementById('modalDescription').textContent = w.desc;
-            document.getElementById('modalSpecs').innerHTML = w.specs.map(s => `<div>${s}</div>`).join('');
-            document.getElementById('modalAddBtn').onclick = () => { addToCart(w.id); closeModalFunc(); };
-            document.getElementById('modalBackdrop').classList.add('show');
-        }
+            // search & filter
+            searchInput.addEventListener('input', () => renderWatches());
+            movementSelect.addEventListener('change', () => renderWatches());
+            sortSelect.addEventListener('change', () => renderWatches());
 
-        function closeModalFunc() { document.getElementById('modalBackdrop').classList.remove('show'); }
-
-        function addToCart(id) {
-            cart[id] = (cart[id] || 0) + 1;
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            localStorage.setItem('iceby_cart_watches', JSON.stringify(cart));
-            const itemsCont = document.getElementById('cartItems');
-            itemsCont.innerHTML = '';
-            let total = 0;
-            let count = 0;
-
-            Object.keys(cart).forEach(id => {
-            const w = watches.find(x => x.id === id);
-            if(!w) return;
-            total += w.price * cart[id];
-            count += cart[id];
-            itemsCont.innerHTML += `
-                <div class="cart-item">
-                <img src="${w.img}">
-                <div style="flex:1">
-                    <div style="font-size:0.9rem;font-weight:600">${w.title}</div>
-                    <div class="price">${formatPrice(w.price)} x ${cart[id]}</div>
-                </div>
-                <button class="btn" style="border:none" onclick="removeFromCart('${id}')">×</button>
-                </div>
-            `;
+            // cart sidebar toggle
+            cartToggle.addEventListener('click', () => {
+                cartSidebar.classList.add('open');
+                cartSidebar.setAttribute('aria-hidden', 'false');
+            });
+            closeCart.addEventListener('click', () => {
+                cartSidebar.classList.remove('open');
+                cartSidebar.setAttribute('aria-hidden', 'true');
             });
 
-            document.getElementById('cartCount').textContent = count;
-            document.getElementById('cartSubtotal').textContent = formatPrice(total);
-        }
+            // checkout (demo)
+            checkoutBtn.addEventListener('click', () => {
+                if (Object.keys(cart).length === 0) { alert('Your collection is empty.'); return; }
+                alert('Thank you — this is a demo checkout.');
+            });
 
-        function removeFromCart(id) {
-            delete cart[id];
+            // modal close
+            closeModal.addEventListener('click', closeModalFunc);
+            modalBackdrop.addEventListener('click', (e) => { if (e.target === modalBackdrop) closeModalFunc(); });
+
+            // scroll progress + navbar
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                const doc = document.documentElement;
+                const height = doc.scrollHeight - doc.clientHeight;
+                const pct = height ? (window.scrollY / height) * 100 : 0;
+                document.getElementById('progressBar').style.width = pct + '%';
+                if (window.scrollY > 40) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }, { passive: true });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') { modalBackdrop.classList.remove('show'); cartSidebar.classList.remove('open'); }
+            });
+
+            // initial render
+            renderWatches();
             updateCartUI();
-        }
 
-        // Event Listeners
-        document.getElementById('searchInput').oninput = renderWatches;
-        document.getElementById('movementSelect').onchange = renderWatches;
-        document.getElementById('sortSelect').onchange = renderWatches;
-        document.getElementById('cartToggle').onclick = () => document.getElementById('cartSidebar').classList.add('open');
-        document.getElementById('closeCart').onclick = () => document.getElementById('cartSidebar').classList.remove('open');
-        document.getElementById('closeModal').onclick = closeModalFunc;
-
-        window.onscroll = () => {
-            const nav = document.getElementById('navbar');
-            const progress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            if(window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        };
-
-        renderWatches();
-        updateCartUI();
-        </script>
+            // sanitize cart
+            (function sanitize() {
+                let changed = false;
+                Object.keys(cart).forEach(id => { if (!getWatch(id)) { delete cart[id]; changed = true; } });
+                if (changed) saveCart();
+            })();
+        })();
+    </script>
 </body>
 </html>
