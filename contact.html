@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html data-wf-domain="jewellery-nx.webflow.io" data-wf-page="670f7de6dec5c0c82ae616ea" data-wf-site="670f7de6dec5c0c82ae616e4" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Icebyflexy - Contact Us</title>
+    <link rel="icon" href="logo.png" type="image/x-icon"/>
+
+    <meta content="Discover the Icebyflexy difference: Nigeria's source for curated, exquisite jewelry. From delicate designs to bold, statement pieces, each craft is made to celebrate your unique style and elevate every occasion, on-trend and built to last." name="description"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        /* Light Mode Background: Warm Off-White */
+        background: #fafaf9; 
+        color: #1a1a1a;
+    }
+
+    /* Progress Bar - Refined Gold */
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: rgba(184, 134, 11, 0.1);
+        z-index: 9999;
+    }
+
+    .progress-bar-line {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #d4af37, #b8860b, #d4af37);
+        box-shadow: 0 0 10px rgba(184, 134, 11, 0.3);
+        transition: width 0.1s ease;
+    }
+
+    /* Navigation Styles */
+    .transparent-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1.2rem 0;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        background: transparent;
+    }
+
+    .transparent-navbar.scrolled {
+        padding: 0.8rem 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .navbar-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .site-logo {
+        height: 40px;
+        color: #1a1a1a; /* Dark text for light mode */
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-family: 'Cormorant Garamond', serif;
+        transition: all 0.3s ease;
+    }
+
+    .site-logo:hover {
+        color: #b8860b;
+    }
+
+    .deskop-nav {
+        display: flex;
+        align-items: center;
+        gap: 3.5rem;
+    }
+
+    .nav-link {
+        color: #333;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 0.5rem 0;
+        display: inline-block;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .nav-link:hover {
+        color: #b8860b;
+    }
+
+    .nav-border {
+        height: 2px;
+        width: 0;
+        background: #b8860b;
+        transition: width 0.3s ease;
+        margin-top: 5px;
+    }
+
+    .nav-link:hover + .border-wrapper .nav-border {
+        width: 100%;
+    }
+
+    /* Dropdown */
+    .nav-dropdown-contents {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffffff;
+        backdrop-filter: blur(20px);
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(184, 134, 11, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+        min-width: 600px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-dropdown-wrapper:hover .nav-dropdown-contents {
+        opacity: 1;
+        visibility: visible;
+        margin-top: 1.5rem;
+    }
+
+    .mask {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: #fff;
+        transition: all 0.5s ease;
+    }
+
+    .mask:hover {
+        border-color: rgba(184, 134, 11, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .portfolio-full-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(3px);
+    }
+
+    ._24px-text-white {
+        color: #1a1a1a; /* Changed to dark */
+        font-size: 1.4rem;
+        font-weight: 700;
+        font-family: 'Cormorant Garamond', serif;
+        letter-spacing: 2px;
+    }
+
+    ._20px-text {
+        margin-top: 0.8rem;
+        font-size: 0.95rem;
+        color: #b8860b; /* Deep Gold */
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+
+    /* Mobile Menu */
+    .hamburger-line {
+        width: 25px;
+        height: 2.5px;
+        background: #1a1a1a;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: #ffffff;
+        padding: 6rem 2rem 2rem;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: 
+            linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(245, 240, 230, 0.3)),
+            url('./b1.jpg') center/cover no-repeat fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #1a1a1a;
+        padding: 6rem 2rem;
+        position: relative;
+    }
+
+    .hero-title {
+        color: #1a1a1a;
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-family: 'Cormorant Garamond', serif;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-subtitle {
+        color: #444;
+        font-weight: 400;
+    }
+
+    .hero-button {
+        color: #1a1a1a;
+        border: 2px solid #1a1a1a;
+        background: transparent;
+    }
+
+    .hero-button:hover {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Product Section */
+    .product-section {
+        padding: 5rem 0;
+        background: #fdfdfc;
+        color: #333;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .product-section h2 {
+        font-family: 'Cormorant Garamond', serif;
+        color: #1a1a1a;
+    }
+
+    .product-section p {
+        color: #555;
+    }
+</style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-bar-line" id="progressBar"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="transparent-navbar" id="navbar">
+            <nav class="container">
+                <div class="navbar-wrapper">
+                    
+                    <!-- Logo -->
+                    <a href="/" class="site-logo"> <img style="height: 1.1cm; border-radius: 50%;opacity: 70%;" src="logo.png" alt="" srcset=""></a>
+
+                    <!-- Desktop Navigation -->
+                    <div class="deskop-nav">
+                        <div class="nav-list">
+                            <a href="index.html" class="nav-link">Home</a>
+                            <div class="border-wrapper">
+                                <div class="nav-border"></div>
+                            </div>
+                        </div>
+ <div class="deskop-nav">
+                        <div class="nav-list">
+                            <a href="About.html" class="nav-link">About </a>
+                            <div class="border-wrapper">
+                                <div class="nav-border"></div>
+                            </div>
+                        </div>
+                        <div class="nav-list">
+                            <a href="shop.html" class="nav-link"> Collection</a>
+                            <div class="border-wrapper">
+                                <div class="nav-border"></div>
+                            </div>
+                        </div>
+                            <div class="nav-dropdown-contents">
+                                <div class="category-grid">
+                                    <div class="w-dyn-item">
+                                        <a href="shop.html" class="mask">
+                                            <video class="portrait-380px" autoplay muted playsinline loop poster="./rings-poster.jpg" aria-label="Rings">
+                                                <source src="gty.mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="portfolio-full-hover">
+                                                <div class="_24px-text-white">Rings</div>
+                                            </div>
+                                        </a>
+                                        <div class="_20px-text">Rings</div>
+                                    </div>
+                                    <div class="w-dyn-item">
+                                        <a href="shop.html" class="mask">
+                                            <video class="portrait-380px" autoplay muted playsinline loop poster="./earrings-poster.jpg" aria-label="Ear Rings">
+                                                <source src="./v2.mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="portfolio-full-hover">
+                                                <div class="_24px-text-white">Ear Rings</div>
+                                            </div>
+                                        </a>
+                                        <div class="_20px-text">Ear Rings</div>
+                                    </div>
+                                    <div class="w-dyn-item">
+                                        <a href="shop.html" class="mask">
+                                            <video class="portrait-380px" autoplay muted playsinline loop poster="./necklace-poster.jpg" aria-label="Necklace">
+                                                <source src=" https://gigx267.github.io/Icebyflexy2025-/j%20(2).mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="portfolio-full-hover">
+                                                <div class="_24px-text-white">Necklace</div>
+                                            </div>
+                                        </a>
+                                        <div class="_20px-text">Necklace</div>
+                                    </div>
+                                    <div class="w-dyn-item">
+                                        <a href="shop.html" class="mask">
+                                            <video class="portrait-380px" autoplay muted playsinline loop poster="./bracelets-poster.jpg" aria-label="Bracelets">
+                                                <source src="./fup.mp4" type="video/mp4" />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="portfolio-full-hover">
+                                                <div class="_24px-text-white">Bracelets</div>
+                                            </div>
+                                        </a>
+                                        <div class="_20px-text">Watches</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-list">
+                            <a href="contact.html" class="nav-link">Contact </a>
+                            <div class="border-wrapper">
+                                <div class="nav-border"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                   
+
+            <!-- Mobile Menu -->
+            <nav class="nav-menu-wrapper" id="mobileMenu">
+                <div class="close-navbar-icon" id="closeMenu">close</div>
+                <div class="_30px-text-white">Browse Pages</div>
+                <div class="nav-menu">
+                    <div class="nav-list">
+                        <a href="index.html" class="nav-link white">Home</a>
+                    </div>
+                    <div class="nav-list">
+                        <a href="About.html" class="nav-link white">About</a>
+                    </div>
+                   
+                    <div class="nav-list">
+                        <a href="shop.html" class="nav-link white">Shop</a>
+                    </div>
+                    <div class="nav-list">
+                        <a href="About.html" class="nav-link white">FAQ</a>
+                    </div>
+                    <div class="nav-list">
+                        <a href="contact.html" class="nav-link white">Contact Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+      
+<!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2 class="info-title">Contact Information</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">location_on</div>
+                            <div class="info-content">
+                                <h4>Our Location</h4>
+                                <p>
+                                    <!-- ADD YOUR ADDRESS HERE -->
+                                     RVS Mall, Shop 26, 3rd Avenue, Gwarinpa, Abuja, Nigeria
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">mail</div>
+                            <div class="info-content">
+                                <h4>Email Address</h4>
+                                <p>
+                                    <!-- ADD YOUR EMAIL HERE -->
+                                    <a href="mailto:contact@icebyflexy.com">contact@icebyflexy.com</a>
+                                </p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                                    For general inquiries and customer support
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">phone</div>
+                            <div class="info-content">
+                                <h4>Phone Number</h4>
+                                <p>
+                                    <!-- ADD YOUR PHONE NUMBER HERE -->
+                                    <a href="tel:+2348001234567">+234 810 348 9560 </a>
+                                </p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                                    Monday - Friday, 9:00 AM - 6:00 PM WAT
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">alternate_email</div>
+                            <div class="info-content">
+                                <h4>Social Media</h4>
+                                <p>
+                                    Connect with us on Instagram for the latest updates, new collections, and behind-the-scenes content.
+                                </p>
+                                <p style="margin-top: 1rem;">
+                                    <a href="https://www.instagram.com/icebyflexzy/" target="_blank" style="color: #c9a661; font-weight: 600;">
+                                        @icebyflexzy
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2 class="info-title">Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" class="form-control" placeholder="Your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" placeholder="Your email address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" class="form-control">
+                                    <option value="">Select a topic</option>
+                                    <option value="order">Order Inquiry</option>
+                                    <option value="product">Product Information</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="support">Customer Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message *</label>
+                                <textarea id="message" class="form-control" placeholder="Please write your message here..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+
+                  <style>
+    /* Contact Section - Light Mode */
+    .contact-section {
+        padding: 4rem 0;
+        /* Clean Off-White Background */
+        background: #fdfdfc; 
+        border-top: 1px solid rgba(184, 134, 11, 0.15);
+        border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .info-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        color: #1a1a1a; /* Dark text */
+        margin-bottom: 2rem;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+    }
+
+    .info-item {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle divider */
+    }
+
+    .info-item:last-child {
+        border-bottom: none;
+    }
+
+    .info-icon {
+        font-family: 'Material Icons';
+        font-size: 2rem;
+        color: #b8860b; /* Sophisticated Gold */
+        flex-shrink: 0;
+    }
+
+    .info-content h4 {
+        color: #1a1a1a;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .info-content p {
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .info-content a {
+        color: #b8860b;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .info-content a:hover {
+        color: #1a1a1a;
+    }
+
+    /* Contact Form Styles - Enhanced for Light Mode */
+    .contact-form {
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Soft shadow for depth */
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        color: #1a1a1a;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.9rem 1.2rem;
+        background: #fcfcfc;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        color: #1a1a1a;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .form-control:focus {
+        outline: none;
+        background: #ffffff;
+        border-color: #b8860b; /* Gold focus border */
+        box-shadow: 0 0 10px rgba(184, 134, 11, 0.1);
+    }
+
+    .form-control::placeholder {
+        color: #999;
+    }
+
+    .form-control option {
+        background: #ffffff;
+        color: #1a1a1a;
+    }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 1rem 2rem;
+        background: #1a1a1a; /* Dark button for high contrast */
+        color: #ffffff;
+        border: 2px solid #1a1a1a;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .submit-button:hover {
+        background: transparent;
+        color: #1a1a1a;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+    }
+
+    /* Success Message Light Mode */
+    .form-message.success {
+        background: #e8f5e9;
+        border: 1px solid #a5d6a7;
+        color: #2e7d32;
+    }
+
+    .form-message.error {
+        background: #ffebee;
+        border: 1px solid #ef9a9a;
+        color: #c62828;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+    }
+</style>
+
+                    <script>
+                        const contactForm = document.getElementById('contactForm');
+
+                        contactForm.addEventListener('submit', function(e) {
+                            e.preventDefault();
+
+                            const name = document.getElementById('name').value.trim();
+                            const email = document.getElementById('email').value.trim();
+                            const subject = document.getElementById('subject').value;
+                            const message = document.getElementById('message').value.trim();
+
+                            // Validation
+                            if (!name || !email || !message) {
+                                showMessage('Please fill in all required fields.', 'error');
+                                return;
+                            }
+
+                            if (!isValidEmail(email)) {
+                                showMessage('Please enter a valid email address.', 'error');
+                                return;
+                            }
+
+                            // Send form data (replace with your backend endpoint)
+                            sendFormData({
+                                name,
+                                email,
+                                subject,
+                                message
+                            });
+                        });
+
+                        function isValidEmail(email) {
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            return emailRegex.test(email);
+                        }
+
+                        function showMessage(msg, type) {
+                            const existingMsg = document.querySelector('.form-message');
+                            if (existingMsg) existingMsg.remove();
+
+                            const msgDiv = document.createElement('div');
+                            msgDiv.className = `form-message ${type}`;
+                            msgDiv.textContent = msg;
+                            contactForm.insertBefore(msgDiv, contactForm.firstChild);
+                            msgDiv.style.display = 'block';
+
+                            setTimeout(() => msgDiv.remove(), 4000);
+                        }
+
+                        function sendFormData(data) {
+                            // Replace with your API endpoint
+                            fetch('/api/contact', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            })
+                            .then(response => response.json())
+                            .then(result => {
+                                showMessage('Message sent successfully! We will get back to you soon.', 'success');
+                                contactForm.reset();
+                            })
+                            .catch(error => {
+                                showMessage('Error sending message. Please try again.', 'error');
+                                console.error('Error:', error);
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+                <script>
+                    // Reveal on scroll
+                    (function(){
+                        const reveals = document.querySelectorAll('.about-inner .reveal');
+                        if (reveals.length) {
+                            const io = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) entry.target.classList.add('show');
+                                });
+                            }, { threshold: 0.15 });
+                            reveals.forEach(el => io.observe(el));
+                        }
+
+                        // Auto play / pause video depending on visibility
+                        const video = document.getElementById('aboutVideo');
+                        if (video) {
+                            const vIO = new IntersectionObserver((entries) => {
+                                entries.forEach(e => {
+                                    if (e.isIntersecting) {
+                                        video.play().catch(()=>{});
+                                    } else {
+                                        video.pause();
+                                    }
+                                });
+                            }, { threshold: 0.5 });
+                            vIO.observe(video);
+
+                            // Reduce bandwidth: stop loading if user navigates away from viewport for a long time
+                            let outTimer = null;
+                            vIO.observe(video);
+                            document.addEventListener('visibilitychange', () => {
+                                if (document.hidden) video.pause();
+                                else video.play().catch(()=>{});
+                            });
+                        }
+
+                        // Gentle parallax / subtle movement while scrolling
+                        const vidEl = document.querySelector('.about-image video');
+                        if (vidEl) {
+                            window.addEventListener('scroll', () => {
+                                const rect = vidEl.getBoundingClientRect();
+                                const winH = window.innerHeight || document.documentElement.clientHeight;
+                                // normalized -1..1
+                                const pct = ((rect.top + rect.height/2) - winH/2) / (winH/2);
+                                const clamp = Math.max(-1, Math.min(1, pct));
+                                vidEl.style.transform = `translateY(${clamp * 8}px) scale(${1 + Math.abs(clamp) * 0.01})`;
+                            }, { passive: true });
+                        }
+                    })();
+                </script>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
