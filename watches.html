@@ -106,7 +106,53 @@
         }
         .cart-sidebar.open{right:0}
         .cart-item{border-bottom:1px solid #eee;padding:1rem 0}
+/* Modified Grid for 2x2 Mobile View */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
 
+        @media (max-width: 768px) {
+            .grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 1rem; 
+            }
+            .cart-sidebar { width: 100%; right: -100%; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .grid { 
+                grid-template-columns: 1fr 1fr; /* This creates the 2x2 view */
+                gap: 0.75rem; /* Slightly smaller gap for small screens */
+            }
+
+            .card-img {
+                height: 180px; /* Reduced height so it doesn't take up too much vertical space */
+            }
+
+            .card-body {
+                padding: 0.8rem;
+            }
+
+            .product-title {
+                font-size: 0.85rem; /* Smaller text for the titles */
+                height: 2.5rem; /* Ensures titles align even if one is longer */
+                overflow: hidden;
+            }
+
+            .watch-specs {
+                display: none; /* Hides specs on mobile grid to keep it clean */
+            }
+
+            .price {
+                font-size: 0.95rem;
+            }
+
+            .btn.primary {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+        }
         /* Modal */
         .modal-backdrop{position:fixed;inset:0;background:rgba(255,255,255,.9);display:none;align-items:center;justify-content:center;z-index:1250;backdrop-filter:blur(8px)}
         .modal{
@@ -122,6 +168,7 @@
         @media (max-width:768px){.grid{grid-template-columns:repeat(2,1fr)}.cart-sidebar{width:100%;right:-100%}}
         @media (max-width:480px){.grid{grid-template-columns:1fr}}
     </style>
+   
 </head>
 <body>
     <div class="progress-bar"><div class="progress-bar-line" id="progressBar"></div></div>
