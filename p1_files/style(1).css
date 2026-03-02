@@ -1,0 +1,356 @@
+
+/* default class */
+.radius-50 {
+  border-radius:50%;
+}
+
+#dialogHeading {
+  margin: 0;
+}
+
+/* if email collection is true */
+.dialogParent {
+  position: fixed;
+  background: #ffffff;
+  width: 370px;
+  padding:6px 6px;
+  display: flex;
+  gap: 14px;
+  border-radius: 10px;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.dialogParent #dialogCounterLive {
+  display:flex;
+  justify-content:end;
+  margin-bottom:3.5px;
+  margin-top:2px;
+  gap: 10px;
+}
+.dialogParent .openModalButtonClass {
+  position: relative;
+  width:60px;
+  height:60px;
+}
+.dialogParent .dialogContent {
+  line-height: 1.25;
+}
+
+.dialogParent #dialogCloseButton {
+  position:absolute;
+  top:-14px;
+  right:6px;
+  height:0;
+  font-size:xx-large;
+}
+
+.gradientColor {
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.videoParent {
+  margin: 95px auto;
+  width: 270px;
+  height: 490px;
+  position: relative;
+  border-radius: 20px;
+}
+#videoTag {
+  object-fit: cover;
+  border-radius: 20px;
+}
+.videoHeader {
+  width: 90%;
+  position: absolute;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  right: 14px;
+}
+#headetleftParent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+#headerLeftImage {
+  width: 30px;
+  height: 30px;
+  background: #bcbab4;
+}
+#headername,
+.commentName {
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0;
+}
+/* header RightSide */
+.headerRightParent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.headerLiveOption {
+  padding: 2px 5px;
+  background-color: #eb1414;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.808);
+  font-size: 11px;
+  font-weight: 300;
+  margin: 0;
+  /* margin-right: 5px; */
+}
+.viewSection {
+  width: 45px;
+  height: 19px;
+  padding: 4px;
+  background-color: #37383a;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  font-size: 11px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.viewSection img {
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+.blueTickParent {
+  width: 10px;
+}
+
+.blueTickParent img {
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: white;
+}
+#headerCloseButton {
+  width: 25px;
+  height: 25px;
+}
+#headerRemoveIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* footer */
+#footerParent {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+}
+#productParent {
+  width: 48px;
+  height: 45px;
+}
+#productParent img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+#footerButton {
+  width: 170px;
+  height: 45px;
+  color: white;
+  background-color: #eb1414;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* comments section */
+#commentsParent {
+  position: absolute;
+  bottom: 67px;
+  right: 14px;
+  width: 88%;
+  text-wrap: wrap;
+  height: 190px;
+  overflow: hidden;
+  mask-image: linear-gradient(to top, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 30s linear infinite;
+}
+
+.commentsCardParent {
+  width: 232px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 9px;
+  transition: opacity 0.5s;
+}
+
+.commentImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.commentImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comments {
+  color: white;
+  font-size: 11px;
+  margin: 0;	
+}
+
+#openModalButton {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  position: fixed;
+  z-index:10;
+  display: none;
+}
+#openModalButton .innerOpenModal {
+  position:relative;
+}
+/* .dialogParent .openModalButtonClass {
+  position:relative;
+  width:70px;
+} */
+.dialogParent .dialogContent {
+  width:270px;
+}
+#openModalButton #roundModalImage {
+  top:43%
+}
+#dialogModalImage {
+  top:48%;
+}
+.modalsUserProfiles {
+  position:absolute;
+  transform:translate(-50%,-50%);
+  left:50%;
+  object-fit: contain;
+}
+#headerLeftImage img {
+  width: 100%;
+  height: 100%;
+}
+#headerCloseButton {
+  cursor: pointer;
+}
+
+/* modal styling */
+#modal,#discountModalWrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.516);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 0.5s ease-in forwards;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+}
+
+/* Modal Popup Styling */
+.modalPopupParent {
+  display: none;
+  width: 90%;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  animation: slideIn 0.5s ease-in forwards;
+}
+.modalPopupParent #modalPopupText {
+  font-size: 13px;
+  margin: 10px 0;
+}
+.modalPopupParent #modalPopupInput {
+  border: 1px solid;
+  outline: none;
+  padding: 3px 7px;
+  width: 100%;
+  border-radius: 4px;
+}
+.modalPopupParent #modalPopupInput:focus {
+  box-shadow: none;
+}
+.modalPopupParent #modalPopupButton {
+  width: 60%;
+  padding: 5px 8px;
+  color: #ffffff;
+  background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.modalPopupParent #modalPopupClose,#discountModaCloseBtn {
+  font-size: 22px;
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Discount Modal */
+#discountModalContent {
+  position:relative;
+  padding: 20px;
+  background: #ffffff;
+  border-radius:10px;
+  height:85px;
+  align-content:center;
+  width:400px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .dialogParent {
+    width: 300px !important;
+    padding:9px !important;
+  }
+}
